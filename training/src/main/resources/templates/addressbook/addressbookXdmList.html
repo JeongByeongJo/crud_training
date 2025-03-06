@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+
+<table>
+	<tr>
+		<td>seq</td>
+		<td>pic</td>
+		<td>isFavorite</td>
+		<td>honorific</td>
+		<td>lastName</td>
+		<td>middleName</td>
+		<td>firstName</td>
+		<td>appellation</td>
+		<td>naverId</td>
+		<td>nickname</td>
+		<td>memo</td>
+	</tr>
+	<tr th:each ="list : ${list}">
+		<td th:text = "${list.seq}"></td>
+		<td th:text = "${list.pic}"></td>
+		<td th:text = "${list.isFavorite}"></td>
+		<td th:text = "${list.honorific}"></td>
+		<td th:text = "${list.lastName}"></td>
+		<td th:text = "${list.middleName}"></td>
+		<td th:text = "${list.firstName}"></td>
+		<td th:text = "${list.appellation}"></td>
+		<td th:text = "${list.naverId}"></td>
+		<td><a th:href="@{/addressbook/addressbookXdmView(seq=${list.seq})}" th:text="${list.nickname}"></a></td>
+		<td th:text = "${list.memo}"></td>
+	</tr>
+</table>
+<a href="/addressbook/addressbookXdmForm">등록</a>
+<button><a href="/index">index</a></button>
+</body>
+</html>

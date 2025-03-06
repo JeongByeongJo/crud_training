@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bj.training.crud.addressbook.AddressbookDao">
+
+	<resultMap type="com.bj.training.crud.addressbook.AddressbookDto" id="resultMapObj"></resultMap>
+	
+	<select id="selectList" resultMap="resultMapObj">
+		select
+			seq
+		    ,pic
+		    ,isFavorite
+		    ,honorific
+		    ,lastName
+		    ,middleName
+		    ,firstName
+		    ,appellation
+		    ,naverId
+		    ,nickname
+		    ,memo
+		from
+			addressbook
+		where 1=1
+		order by seq asc
+	</select>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		select
+			seq
+		    ,pic
+		    ,isFavorite
+		    ,honorific
+		    ,lastName
+		    ,middleName
+		    ,firstName
+		    ,appellation
+		    ,naverId
+		    ,nickname
+		    ,memo
+		from
+			addressbook
+		where 1=1
+			and seq = #{seq}
+		order by seq asc
+	</select>
+	<insert id="insert">
+		insert into addressbook (
+			lastName
+			,firstName
+			,nickname
+		    ,memo
+		) values (
+			#{lastName},
+			#{firstName},
+			#{nickname},
+			#{memo}
+		)			
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+</mapper>

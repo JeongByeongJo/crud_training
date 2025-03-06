@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+
+<form action="/addressbook/addressbookXdmInst" method="post" id="form">
+	lastName: <input type="text" name="lastName" id="lastName" placeholder="성 입력">
+	firstName: <input type="text" name="firstName" id="firstName" placeholder="명 입력">
+	nickname: <input type="text" name="nickname" id="nickname" placeholder="별명 입력">
+	memo: <input type="text" name="memo" id="memo" placeholder="메모 입력">
+	<button type="button" id="btnsave">저장</button>
+</form>
+<script type="text/javascript">
+
+	document.getElementById("btnsave").onclick = function() {
+		document.getElementById("form").submit();
+	}
+		
+</script>
+
+</body>
+</html>
